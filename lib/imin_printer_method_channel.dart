@@ -378,7 +378,7 @@ class MethodChannelIminPrinter extends IminPrinterPlatform {
     }
     arguments.putIfAbsent("bitmaps", () => imgs);
     await methodChannel.invokeMethod<void>('printMultiBitmap', arguments);
-    }
+  }
 
   @override
   Future<void> printSingleBitmapBlackWhite(dynamic img,
@@ -491,6 +491,11 @@ class MethodChannelIminPrinter extends IminPrinterPlatform {
   @override
   Future<void> openCashBox() async {
     await methodChannel.invokeMethod<void>('openCashBox');
+  }
+
+  @override
+  Future<bool> isCashBoxOpen() async {
+    return await methodChannel.invokeMethod<bool>('isCashBoxOpen') ?? false;
   }
 
   @override

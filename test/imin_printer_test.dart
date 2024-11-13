@@ -12,7 +12,6 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockIminPrinterPlatform
     with MockPlatformInterfaceMixin
     implements IminPrinterPlatform {
-    
   @override
   Future<String?> getSdkVersion() => Future.value('1.0.0');
   @override
@@ -36,8 +35,7 @@ class MockIminPrinterPlatform
   Future<void> printAntiWhiteText(String text, {IminTextStyle? style}) =>
       Future.value();
   @override
-  Future<void> setPrinterEncode(int encode) =>
-      Future.value();
+  Future<void> setPrinterEncode(int encode) => Future.value();
   @override
   Future<void> printColumnsText({required List<ColumnMaker> cols}) =>
       Future.value();
@@ -116,6 +114,8 @@ class MockIminPrinterPlatform
   Future<void> resetDevice() => Future.value();
   @override
   Future<void> openCashBox() => Future.value();
+  @override
+  Future<bool> isCashBoxOpen() => Future.value(false);
   @override
   Future<void> unBindService() => Future.value();
   @override

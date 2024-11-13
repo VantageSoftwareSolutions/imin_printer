@@ -11,6 +11,7 @@ class IminPrinter {
   Future<String?> getSdkVersion() {
     return IminPrinterPlatform.instance.getSdkVersion();
   }
+
   Stream<dynamic> get receiveBroadcastStream {
     return IminPrinterPlatform.instance.initEventChannel();
   }
@@ -519,6 +520,10 @@ class IminPrinter {
   /// {@end-tool}
   Future<void> openCashBox() {
     return IminPrinterPlatform.instance.openCashBox();
+  }
+
+  Future<bool> isCashBoxOpen() {
+    return IminPrinterPlatform.instance.isCashBoxOpen();
   }
 
   Future<void> unBindService() {

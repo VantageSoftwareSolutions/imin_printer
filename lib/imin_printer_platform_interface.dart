@@ -202,6 +202,10 @@ abstract class IminPrinterPlatform extends PlatformInterface {
     throw UnimplementedError('openCashBox() has not been implemented.');
   }
 
+  Future<bool> isCashBoxOpen() {
+    throw UnimplementedError('isCashBoxOpen() has not been implemented.');
+  }
+
   Future<void> unBindService() {
     throw UnimplementedError('unBindService() has not been implemented.');
   }
@@ -407,9 +411,11 @@ abstract class IminPrinterPlatform extends PlatformInterface {
   Future<void> setPrinterEncode(int encode) {
     throw UnimplementedError('setPrinterEncode() has not been implemented.');
   }
+
   Future<void> openLogs(int encode) {
     throw UnimplementedError('setPrinterEncode() has not been implemented.');
   }
+
   Future<void> sendRAWDataHexStr(String bytes) {
     throw UnimplementedError('sendRAWData() has not been implemented.');
   }

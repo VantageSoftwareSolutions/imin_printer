@@ -14,6 +14,7 @@ import com.imin.printer.INeoPrinterCallback;
 import com.imin.printer.PrinterHelper;
 import com.imin.printerlib.Callback;
 import com.imin.printerlib.IminPrintUtils;
+import com.imin.library.IminSDKManager;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -609,12 +610,17 @@ public class IminPrinterPlugin implements FlutterPlugin, MethodCallHandler, Stre
                 result.success(true);
                 break;
             case "openCashBox":
-                if (iminPrintUtils != null) {
-                    Utils.getInstance().opencashBox();
-                } else {
-                    PrinterHelper.getInstance().openDrawer();
-                }
+                IminSDKManager.opencashBox(_context);
+                // if (iminPrintUtils != null) {
+                //     Utils.getInstance().opencashBox();
+                // } else {
+                //     PrinterHelper.getInstance().openDrawer();
+                // }
                 result.success(true);
+                break;
+            case "isCashBoxOpen":
+                boolean isOpen = IminSDKManager.isCashBoxOpen(_context);
+                result.success(isOpen);
                 break;
             case "setInitIminPrinter":
                 boolean isDefault = call.argument("isDefault");
@@ -835,6 +841,8 @@ public class IminPrinterPlugin implements FlutterPlugin, MethodCallHandler, Stre
             case "getServiceVersion":
                 if (iminPrintUtils == null) {
                     result.success(PrinterHelper.getInstance().getServiceVersion());
+                } else {
+                    result.success(Utils.getInstance().getModel());
                 }
                 break;
             case "getPrinterHardwareVersion":
